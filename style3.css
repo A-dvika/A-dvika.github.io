@@ -129,14 +129,14 @@ h2 {
     bottom: 10px;
   }
   .card-fullname {
-    margin-bottom: 18px; /* Add margin at the bottom */
+    margin-bottom: 30; /* Add margin at the bottom */
     left: 86px;
     transform: none;
   }
   
   .card-jobtitle {
     margin-top: 20px; /* Add margin at the top */
-    bottom: -20px;
+    bottom: -30px;
     font-size: 13px;
   }
   
