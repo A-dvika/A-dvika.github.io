@@ -1,34 +1,60 @@
-const buttons = document.querySelectorAll(".card-buttons button");
-const sections = document.querySelectorAll(".card-section");
-const card = document.querySelector(".card");
+document.addEventListener("DOMContentLoaded", function () {
+  const btns = document.querySelectorAll(".btn");
+  const slideRow = document.getElementById("slide-row");
+  const main = document.querySelector("main");
 
-const handleButtonClick = (e) => {
-  const targetSection = e.target.getAttribute("data-section");
-  const section = document.querySelector(targetSection);
-  
-  // Corrected the condition here
-  if (targetSection !== card.getAttribute("data-state")) {
-    card.classList.add("is-active");
-  } else {
-    card.classList.remove("is-active");
+  let currentIndex = 0;
+
+  function updateSlide() {
+    const mainWidth = main.offsetWidth;
+    const translateValue = currentIndex * -mainWidth;
+    slideRow.style.transform = `translateX(${translateValue}px)`;
+
+    btns.forEach((btn, index) => {
+      btn.classList.toggle("active", index === currentIndex);
+    });
   }
-  
-  card.setAttribute("data-state", targetSection);
-  sections.forEach((s) => s.classList.remove("is-active"));
-  buttons.forEach((b) => b.classList.remove("is-active"));
-  e.target.classList.add("is-active");
-  section.classList.add("is-active");
-};
 
+  btns.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlide();
+    });
+  });
 
-buttons.forEach((btn) => {
-  btn.addEventListener("click", handleButtonClick);
-});
-document.addEventListener("DOMContentLoaded", function() {
+  window.addEventListener("resize", () => {
+    updateSlide();
+  });
+
+  const buttons = document.querySelectorAll(".card-buttons button");
+  const sections = document.querySelectorAll(".card-section");
+  const card = document.querySelector(".card");
+
+  const handleButtonClick = (e) => {
+    const targetSection = e.target.getAttribute("data-section");
+    const section = document.querySelector(targetSection);
+
+    if (targetSection !== card.getAttribute("data-state")) {
+      card.classList.add("is-active");
+    } else {
+      card.classList.remove("is-active");
+    }
+
+    card.setAttribute("data-state", targetSection);
+    sections.forEach((s) => s.classList.remove("is-active"));
+    buttons.forEach((b) => b.classList.remove("is-active"));
+    e.target.classList.add("is-active");
+    section.classList.add("is-active");
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", handleButtonClick);
+  });
+
   const navLinks = document.querySelectorAll("nav a");
 
-  navLinks.forEach(function(link) {
-    link.addEventListener("click", function(event) {
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
       event.preventDefault();
 
       const targetId = this.getAttribute("href").substring(1);
@@ -36,19 +62,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (targetElement) {
         targetElement.scrollIntoView({
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
   const projectTilesContainer = document.querySelector(".project-tiles-container");
   const projectTiles = document.querySelectorAll(".project-tile");
   const arrowPrev = document.querySelector(".arrow-prev");
   const arrowNext = document.querySelector(".arrow-next");
-  let currentIndex = 0;
 
   // Function to update the visibility of project tiles
   const updateProjectTiles = () => {
