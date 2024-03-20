@@ -7,8 +7,7 @@
     <title>Advika Thakur</title>
     <link rel="stylesheet" href="style3.css">
 
-    <!-- Add any additional stylesheets or script>
-        s here -->
+    <!-- Add any additional stylesheets or scripts here -->
 </head>
 <body>
 
@@ -18,17 +17,17 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#Contributions">Contributions</a></li>
-                <li><a href="#Blogs">Blogs</a></li>
+                <li><a href="#contributions">Contributions</a></li> <!-- Fixed ID to lowercase -->
+                <li><a href="#blogs">Blogs</a></li> <!-- Fixed ID to lowercase -->
             </ul>
         </nav>
     </header>
     <div class="card" data-state="#about">
         <div class="card-header">
           <div class="card-cover" style="background-image: url('https://gifdb.com/images/high/calm-ocean-water-moonlight-a21jirffhqthe9qi.gif')"></div>
-          <img class="card-avatar" src="\profile-pic.png" alt="avatar" />
+          <img class="card-avatar" src="profile-pic.png" alt="avatar" /> <!-- Removed backslash from image src -->
           <h1 class="card-fullname">Advika Thakur</h1>
-          <h2 class="card-jobtitle"style="margin-bottom: -10px;">Aspiring Software Engineer</h2>
+          <h2 class="card-jobtitle" style="margin-bottom: -10px;">Aspiring Software Engineer</h2>
         </div>
         <div class="card-main">
           <div class="card-section is-active" id="about">
@@ -39,22 +38,15 @@
                 🌱 I'm constantly learning and expanding my knowledge in AI and ML, always eager to stay ahead of the curve and embrace new technologies.<br>
                 💡 I'm excited about collaborating on innovative projects that harness the power of AI to solve real-world problems and make a positive impact on society.<br>
                 💬 Feel free to reach out to me if you want to discuss anything related to AI, ML, or even if you just want to brainstorm some cool ideas!
-            </p>
+              </p>
             
             </div>
             <div class="card-social">
-                
-                    <a href="https://www.linkedin.com/in/advika-thakur-57003a247/" target="_blank">
-                        <i class="fa-brands fa-linkedin"></i></a></li>
-                   
-                    </a>
-                    <a href="https://github.com/A-dvika" target="_blank">
-                        <i class="fa-brands fa-github"></i></a></li>
-                    </a>
-                    
-                
-                </div>  
-          
+              <a href="https://www.linkedin.com/in/advika-thakur-57003a247/" target="_blank">
+                <i class="fab fa-linkedin"></i></a> <!-- Corrected Font Awesome class name -->
+              <a href="https://github.com/A-dvika" target="_blank">
+                <i class="fab fa-github"></i></a> <!-- Corrected Font Awesome class name -->
+            </div>  
           </div>
           <div class="card-section" id="education">
             <div class="card-content">
@@ -78,6 +70,7 @@
             </div>
           </div>
           
+
           <div class="card-section" id="experience">
             <div class="card-content">
               <div class="card-subtitle">WORK EXPERIENCE</div>
@@ -341,5 +334,9 @@
     <div class="pointing-light"></div>
   </div>
       <script src="script3.js" ></script>
+
+      <footer>
+        <p>&copy; 2024 Advika Thakur. All rights reserved.</p>
+      </footer>
     </body>
     </html>
