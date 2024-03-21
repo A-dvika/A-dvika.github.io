@@ -31,21 +31,30 @@ document.addEventListener('mouseleave', () => {
   pointingLight.style.height = '20px';
 });
 document.getElementById("download-button").addEventListener("click", function() {
-  // Replace "path_to_resume.pdf" with the actual path to your resume file
-  const resumePath = "/resume/ADVIKA_THAKUR_Resume.pdf";
-  
-  // Create a temporary anchor element
-  const tempAnchor = document.createElement("a");
-  
-  // Set the href attribute to the path of the resume file
-  tempAnchor.setAttribute("href", resumePath);
-  
-  // Set the download attribute to force download
-  tempAnchor.setAttribute("download", "Advika_Thakur_Resume.pdf");
-  
-  // Simulate click on the anchor element
-  tempAnchor.click();
-  
-  // Clean up
-  tempAnchor.remove();
+  // Fetch the resume file
+  fetch("resume/ADVIKA_THAKUR_Resume.pdf")
+    .then(response => response.blob())
+    .then(blob => {
+      // Create a URL for the blob
+      const blobURL = window.URL.createObjectURL(blob);
+      
+      // Create a temporary anchor element
+      const tempAnchor = document.createElement("a");
+      
+      // Set the href attribute to the URL of the blob
+      tempAnchor.setAttribute("href", blobURL);
+      
+      // Set the download attribute to force download
+      tempAnchor.setAttribute("download", "Advika_Thakur_Resume.pdf");
+      
+      // Simulate click on the anchor element
+      tempAnchor.click();
+      
+      // Clean up
+      window.URL.revokeObjectURL(blobURL);
+      tempAnchor.remove();
+    })
+    .catch(error => {
+      console.error("Error fetching the resume:", error);
+    });
 });
