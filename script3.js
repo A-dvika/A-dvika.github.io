@@ -31,30 +31,25 @@ document.addEventListener('mouseleave', () => {
   pointingLight.style.height = '20px';
 });
 document.getElementById("download-button").addEventListener("click", function() {
-  // Fetch the resume file
-  fetch("resume/ADVIKA_THAKUR_Resume.pdf")
-    .then(response => response.blob())
-    .then(blob => {
-      // Create a URL for the blob
-      const blobURL = window.URL.createObjectURL(blob);
-      
-      // Create a temporary anchor element
-      const tempAnchor = document.createElement("a");
-      
-      // Set the href attribute to the URL of the blob
-      tempAnchor.setAttribute("href", blobURL);
-      
-      // Set the download attribute to force download
-      tempAnchor.setAttribute("download", "Advika_Thakur_Resume.pdf");
-      
-      // Simulate click on the anchor element
-      tempAnchor.click();
-      
-      // Clean up
-      window.URL.revokeObjectURL(blobURL);
-      tempAnchor.remove();
-    })
-    .catch(error => {
-      console.error("Error fetching the resume:", error);
-    });
+  // Replace "google_drive_link" with the shareable link to your Google Drive file
+  const googleDriveLink = "https://drive.google.com/file/d/1xaEzNnZquRa2J-RIzDVaXfGENo4ZFYoJ/view?usp=sharing";
+  
+  // Convert the shareable link to a direct download link
+  const directDownloadLink = googleDriveLink.replace("open", "uc");
+  
+  // Create a temporary anchor element
+  const tempAnchor = document.createElement("a");
+  
+  // Set the href attribute to the direct download link
+  tempAnchor.setAttribute("href", directDownloadLink);
+  
+  // Set the download attribute to force download
+  tempAnchor.setAttribute("download", "Advika_Thakur_Resume.pdf");
+  
+  // Simulate click on the anchor element
+  tempAnchor.click();
+  
+  // Clean up
+  tempAnchor.remove();
 });
+
