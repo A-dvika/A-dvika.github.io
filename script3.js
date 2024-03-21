@@ -30,26 +30,12 @@ document.addEventListener('mouseleave', () => {
   pointingLight.style.width = '20px';
   pointingLight.style.height = '20px';
 });
-document.getElementById("download-button").addEventListener("click", function() {
-  // Replace "google_drive_link" with the shareable link to your Google Drive file
-  const googleDriveLink = "https://drive.google.com/file/d/1xaEzNnZquRa2J-RIzDVaXfGENo4ZFYoJ/view?usp=sharing";
-  
-  // Convert the shareable link to a direct download link
-  const directDownloadLink = googleDriveLink.replace("open", "uc");
-  
-  // Create a temporary anchor element
-  const tempAnchor = document.createElement("a");
-  
-  // Set the href attribute to the direct download link
-  tempAnchor.setAttribute("href", directDownloadLink);
-  
-  // Set the download attribute to force download
-  tempAnchor.setAttribute("download", "Advika_Thakur_Resume.pdf");
-  
-  // Simulate click on the anchor element
-  tempAnchor.click();
-  
-  // Clean up
-  tempAnchor.remove();
+document.querySelector('.download-link').addEventListener('click', function() {
+  const firecracker = document.querySelector('.firecracker');
+  firecracker.style.left = event.clientX + 'px';
+  firecracker.style.top = event.clientY + 'px';
+  firecracker.style.display = 'block';
+  setTimeout(() => {
+      firecracker.style.display = 'none';
+  }, 500); // Adjust duration of the animation
 });
-

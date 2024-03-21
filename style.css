@@ -644,30 +644,51 @@ footer {
   position: relative; /* Ensure positioning context for z-index */
   z-index: 9; /* Set a z-index higher than the card to ensure the footer appears above the card */
 }
-
 .download-resume {
   position: relative;
-  z-index: 8; /* Set a higher z-index than other elements */
+  z-index: 8;
+  text-align: center; /* Center the button */
 }
 
-.download-resume button {
+.download-link {
+  display: inline-block;
   background-color: #4CAF50; /* Green background */
-  border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  border-radius: 8px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 8px;
 }
 
-.download-resume button:hover {
+.download-link:hover {
   background-color: #45a049; /* Darker green background on hover */
   transform: translateY(-5px); /* Move the button up slightly on hover */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add a shadow on hover */
 }
+
+.firecracker {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #f00; /* Red color */
+  border-radius: 50%;
+  animation: explode 0.5s ease-out forwards; /* Firecracker animation */
+  z-index: 1; /* Ensure firecracker appears below the button */
+  display: none; /* Initially hidden */
+}
+
+@keyframes explode {
+  0% {
+      transform: scale(0);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(4);
+      opacity: 0;
+  }
+}
+
     
