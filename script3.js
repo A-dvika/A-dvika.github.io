@@ -30,10 +30,10 @@ document.addEventListener('mouseleave', () => {
   pointingLight.style.width = '20px';
   pointingLight.style.height = '20px';
 });
-document.querySelector('.download-link').addEventListener('click', function() {
-  const firecracker = document.querySelector('.firecracker');
-  firecracker.style.left = event.clientX + 'px';
-  firecracker.style.top = event.clientY + 'px';
+document.querySelector('.download-link').addEventListener('click', function(event) {
+  const firecracker = this.parentElement.querySelector('.firecracker'); // Select firecracker relative to the clicked button
+  firecracker.style.left = event.clientX - 4 + 'px'; // Adjust position to center firecracker
+  firecracker.style.top = event.clientY - 4 + 'px'; // Adjust position to center firecracker
   firecracker.style.display = 'block';
   setTimeout(() => {
       firecracker.style.display = 'none';
