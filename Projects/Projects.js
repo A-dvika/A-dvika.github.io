@@ -24,3 +24,19 @@ btns.forEach((btn, index) => {
 window.addEventListener("resize", () => {
   updateSlide();
 });
+
+document.addEventListener('mousemove', (e) => {
+  const cursor = document.getElementById('cursor');
+  const pointingLight = document.querySelector('.pointing-light');
+  cursor.style.left = e.pageX + 'px';
+  cursor.style.top = e.pageY + 'px';
+  pointingLight.style.width = '100px';
+  pointingLight.style.height = '100px';
+});
+
+document.addEventListener('mouseleave', () => {
+  const pointingLight = document.querySelector('.pointing-light');
+  pointingLight.style.width = '20px';
+  pointingLight.style.height = '20px';
+});
+

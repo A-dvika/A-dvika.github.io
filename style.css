@@ -94,23 +94,23 @@ h2 {
   }
 }
 .card {
-    width: 90%; /* Adjust width for smaller screens */
-    margin: 20px auto; /* Adjust margins for smaller screens */
-    overflow-y: auto;
-    position: relative;
-    top: 100px; /* Adjust top position for smaller screens */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    overflow-x: hidden;
-    background-color: rgba(255, 255, 255, 1);
-    display: flex;
-    transition: 0.3s;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
-  }
-  
+  width: 90%;
+  margin: 20px auto;
+  overflow-y: auto;
+  position: relative;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6; /* Ensure the card stays on top */
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  transition: 0.3s;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
   /* Media Queries for Responsive Design */
   
   @media screen and (max-width: 768px) {
@@ -403,28 +403,7 @@ h2 {
     margin-top: 15px; /* Adjust margin for smaller screens */
   }
   
-  /* Add specific styles for each back side as needed */
-  .cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 2rem; /* Adjust width for smaller screens */
-    height: 2rem; /* Adjust height for smaller screens */
-    z-index: 2;
-    pointer-events: none;
   
-    .pointing-light {
-      position: absolute;
-      width: 16px; /* Adjust width for smaller screens */
-      height: 16px; /* Adjust height for smaller screens */
-      background-color: #ffcc00; /* Light color */
-      border-radius: 50%;
-      box-shadow: 0 0 16px 4px #ffcc006e; /* Light shadow */
-      animation: pulse 2.5s linear infinite;
-      transform-origin: center;
-      transform: translate(-50%, -50%);
-    }
-  }
   
   /* Media Queries for Responsive Design */
   
@@ -450,16 +429,7 @@ h2 {
       margin-top: 10px; /* Further adjust margin for smaller screens */
     }
   
-    .cursor {
-      width: 1.5rem; /* Further adjust width for smaller screens */
-      height: 1.5rem; /* Further adjust height for smaller screens */
-  
-      .pointing-light {
-        width: 12px; /* Further adjust width for smaller screens */
-        height: 12px; /* Further adjust height for smaller screens */
-        box-shadow: 0 0 12px 3px #ffcc006e; /* Further adjust shadow for smaller screens */
-      }
-    }
+    
   }
 /* Continuing from the previous code */
 
@@ -650,4 +620,54 @@ Project h2 {
 	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBpZD0idmlzdWFsIiB2aWV3Qm94PSIwIDAgOTAwIDYwMCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSI2MDAiIHZlcnNpb249IjEuMSI+PHBhdGggZD0iTTAgNDc4TDIxLjUgNDcxLjhDNDMgNDY1LjcgODYgNDUzLjMgMTI4LjggNDQxLjVDMTcxLjcgNDI5LjcgMjE0LjMgNDE4LjMgMjU3LjIgNDIxLjJDMzAwIDQyNCAzNDMgNDQxIDM4NS44IDQ1MS41QzQyOC43IDQ2MiA0NzEuMyA0NjYgNTE0LjIgNDY3LjNDNTU3IDQ2OC43IDYwMCA0NjcuMyA2NDIuOCA0NjUuNUM2ODUuNyA0NjMuNyA3MjguMyA0NjEuMyA3NzEuMiA0NTMuN0M4MTQgNDQ2IDg1NyA0MzMgODc4LjUgNDI2LjVMOTAwIDQyMEw5MDAgNjAxTDg3OC41IDYwMUM4NTcgNjAxIDgxNCA2MDEgNzcxLj")
 
 }
-     
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.pointing-light {
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(197, 229, 20, 0.8), transparent);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-20%, -20%);
+  mix-blend-mode: overlay;
+  transition: width 0.2s, height 0.2s;
+}
+
+footer {
+  position: relative; /* Ensure positioning context for z-index */
+  z-index: 9; /* Set a z-index higher than the card to ensure the footer appears above the card */
+}
+
+.download-resume {
+  position: relative;
+  z-index: 8; /* Set a higher z-index than other elements */
+}
+
+.download-resume button {
+  background-color: #4CAF50; /* Green background */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.download-resume button:hover {
+  background-color: #45a049; /* Darker green background on hover */
+  transform: translateY(-5px); /* Move the button up slightly on hover */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Add a shadow on hover */
+}
+    

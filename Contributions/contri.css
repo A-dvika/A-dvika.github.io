@@ -108,3 +108,21 @@ body {
     }
   }
   
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.pointing-light {
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(197, 229, 20, 0.8), transparent);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-20%, -20%);
+  mix-blend-mode: overlay;
+  transition: width 0.2s, height 0.2s;
+}
