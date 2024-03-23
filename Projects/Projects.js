@@ -1,29 +1,27 @@
-const btns = document.querySelectorAll(".btn");
-const slideRow = document.getElementById("slide-row");
-const main = document.querySelector("main");
+const btns = document.querySelectorAll('.indicator .btn');
+const slides = document.querySelectorAll('.slide-col');
 
-let currentIndex = 0;
-
-function updateSlide() {
-  const mainWidth = main.offsetWidth;
-  const translateValue = currentIndex * -mainWidth;
-  slideRow.style.transform = `translateX(${translateValue}px)`;
-
-  btns.forEach((btn, index) => {
-    btn.classList.toggle("active", index === currentIndex);
-  });
-}
-
+// Add click event listeners to each button
 btns.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-        currentIndex = index;
-        updateSlide();
+  btn.addEventListener('click', () => {
+    // Remove the 'active' class from all buttons
+    btns.forEach((btn) => {
+      btn.classList.remove('active');
     });
+
+    // Add the 'active' class to the clicked button
+    btn.classList.add('active');
+
+    // Hide all slides
+    slides.forEach((slide) => {
+      slide.style.display = 'none';
+    });
+
+    // Display the corresponding slide
+    slides[index].style.display = 'block';
+  });
 });
 
-window.addEventListener("resize", () => {
-  updateSlide();
-});
 
 document.addEventListener('mousemove', (e) => {
   const cursor = document.getElementById('cursor');
