@@ -15,10 +15,10 @@ function updateSlide() {
 }
 
 btns.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    currentIndex = index;
-    updateSlide();
-  });
+    btn.addEventListener("click", () => {
+        currentIndex = index;
+        updateSlide();
+    });
 });
 
 window.addEventListener("resize", () => {
