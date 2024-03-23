@@ -76,7 +76,7 @@ h2 {
 
 /* Media Queries for Responsive Design */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
   body {
     padding: 10px; /* Adjust padding for smaller screens */
   }
